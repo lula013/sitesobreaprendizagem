@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+<style>
+  /* Reset e base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f9;
+    color: #333;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'header'
+      'menu'
+      'main'
+      'right'
+      'footer';
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .grid-container > div, .grid-container > nav {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Cabeçalho */
+  .item1 {
+    grid-area: header;
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+  }
+
+  .item1 h1 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  /* Menu de navegação */
+  .item2 {
+    grid-area: menu;
+  }
+    
+  .item2 ul {
+    list-style-type: none;
+  }
+
+  .item2 li {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .item2 li:hover {
+    background-color: #2980b9;
+  }
+
+  .item2 li.active {
+    background-color: #2980b9;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+    
+  /* Conteúdo principal com animação */
+  .item3 {
+    grid-area: main;
+  }
+
+  .item3 h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+
+  .item3 p {
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+  
+  /* Esconde todas as seções de conteúdo por padrão */
+  .content-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+  }
+
+  /* Exibe a seção de conteúdo ativa com animação */
+  .content-section.active {
+      display: block;
+      opacity: 1;
+  }
+
+  /* Sidebar/Fatos */
+  .item4 {
+    grid-area: right;
+    border-left: 4px solid #3498db;
+  }
+
+  .item4 h2 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+  }
+
+  .item4 ul {
+    list-style: disc;
+    padding-left: 20px;
+  }
+    
+  .item4 li {
+    margin-bottom: 5px;
+  }
+
+  /* Rodapé */
+  .item5 {
+    grid-area: footer;
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* Media Queries para responsividade */
+  @media only screen and (min-width: 600px) {
+    .grid-container {
+      grid-template-areas:
+        'header header header'
+        'menu main right'
+        'footer footer footer';
+      grid-template-columns: 1fr 3fr 1fr;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .grid-container {
+      grid-template-areas:
+        'header header header'
+        'menu main right'
+        'footer footer footer';
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+
+  <div class="item1"><h1>Portal das Matérias</h1></div>
+
+  <nav class="item2">
+    <ul>
+      <li id="home" class="active">Página Inicial</li>
+      <li id="matematica">Matemática</li>
+      <li id="fisica">Física</li>
+      <li id="quimica">Química</li>
+      <li id="biologia">Biologia</li>
+      <li id="historia">História</li>
+      <li id="geografia">Geografia</li>
+      <li id="portugues">Português</li>
+      <li id="computacao">Pensamento Computacional</li>
+      <li id="ingles">Inglês</li>
+      <li id="financas">Educação Financeira</li>
+      <li id="fisica-educ">Educação Física</li>
+      <li id="artes">Artes</li>
+      <li id="vida">Projeto de Vida</li>
+      <li id="filosofia">Filosofia</li>
+    </ul>
+  </nav>
+
+  <div class="item3" id="main-content">
+    <div id="content-home" class="content-section active">
+      <h1>Bem-vindo ao Portal das Matérias</h1>
+      <p>Explore as diferentes matérias no menu ao lado para descobrir fatos interessantes e aprender algo novo. As informações exibidas nesta área mudarão conforme a sua escolha.</p>
+    </div>
+
+    <div id="content-matematica" class="content-section">
+      <h1>Matemática</h1>
+      <p>A Matemática é a ciência dos números, das formas, das grandezas e das relações. Ela está presente em tudo ao nosso redor, desde a construção de edifícios até a tecnologia que usamos diariamente.</p>
+      <p>Nela, estudamos conceitos como álgebra, geometria, cálculo e estatística, que são fundamentais para o desenvolvimento de diversas áreas do conhecimento.</p>
+    </div>
+
+    <div id="content-fisica" class="content-section">
+      <h1>Física</h1>
+      <p>A Física é a ciência que estuda a natureza e os seus fenômenos. Ela busca entender como o universo funciona, desde as menores partículas até as vastas galáxias.</p>
+      <p>As leis da Física, como a gravidade, o movimento e a energia, nos ajudam a explicar por que as coisas acontecem da maneira que acontecem.</p>
+    </div>
+
+    <div id="content-quimica" class="content-section">
+      <h1>Química</h1>
+      <p>A Química é a ciência que estuda a composição, a estrutura, as propriedades da matéria e as transformações que ela sofre. Ela explica por que o fogo queima, por que o ferro enferruja e como os medicamentos funcionam.</p>
+      <p>Sem a Química, não teríamos a maior parte dos materiais modernos, como plásticos, combustíveis e baterias.</p>
+    </div>
+
+    <div id="content-biologia" class="content-section">
+      <h1>Biologia</h1>
+      <p>A Biologia é a ciência da vida. Ela estuda os seres vivos, suas estruturas, funções, evolução e interações entre si e com o meio ambiente. É a área que nos ajuda a entender quem somos e como o nosso corpo funciona.</p>
+      <p>Ela abrange temas como ecologia, genética, zoologia e botânica, revelando a incrível diversidade e complexidade da vida na Terra.</p>
+    </div>
+
+    <div id="content-historia" class="content-section">
+      <h1>História</h1>
+      <p>A História é a ciência que estuda o passado da humanidade. Ao analisar eventos, culturas, sociedades e grandes personalidades, a História nos ajuda a compreender o presente e a moldar o futuro.</p>
+      <p>Ela nos mostra como o mundo evoluiu, as lições que podemos aprender com os erros e acertos de nossos ancestrais e a importância de preservar nossa memória coletiva.</p>
+    </div>
+
+    <div id="content-geografia" class="content-section">
+      <h1>Geografia</h1>
+      <p>A Geografia é a ciência que estuda a Terra, suas paisagens e como as atividades humanas se relacionam com o espaço. Ela explora a distribuição de populações, os fenômenos naturais e as mudanças no ambiente.</p>
+      <p>Ao estudar Geografia, entendemos as diferentes culturas, os climas, os recursos naturais e a dinâmica das cidades e dos países.</p>
+    </div>
+
+    <div id="content-portugues" class="content-section">
+      <h1>Português</h1>
+      <p>A língua portuguesa é a ferramenta que usamos para nos comunicar, expressar ideias e construir o nosso pensamento. O estudo do Português vai além da gramática e da ortografia, nos ensinando a interpretar textos, aprimorar a escrita e a falar com clareza.</p>
+      <p>Dominar o Português é essencial para todas as outras áreas do conhecimento e para a nossa vida social e profissional.</p>
+    </div>
+
+    <div id="content-computacao" class="content-section">
+      <h1>Pensamento Computacional</h1>
+      <p>Pensamento Computacional não é apenas sobre programar, mas sobre como resolver problemas de forma lógica e eficiente, usando princípios da ciência da computação. É a capacidade de decompor um problema complexo em partes menores, encontrar padrões e criar soluções passo a passo.</p>
+      <p>Essa habilidade é valiosa para qualquer área, pois nos ensina a pensar de forma estruturada e a inovar em qualquer desafio.</p>
+    </div>
+    
+    <div id="content-ingles" class="content-section">
+      <h1>Inglês</h1>
+      <p>O Inglês é a língua universal da ciência, da tecnologia, dos negócios e da cultura pop. Aprender Inglês abre portas para o mundo, permitindo a comunicação com pessoas de diferentes países, o acesso a informações globais e a oportunidade de viajar e trabalhar em ambientes internacionais.</p>
+      <p>É uma habilidade fundamental para se destacar em um mundo cada vez mais conectado.</p>
+    </div>
+
+    <div id="content-financas" class="content-section">
+      <h1>Educação Financeira</h1>
+      <p>Educação Financeira nos ensina a gerenciar nosso dinheiro de forma inteligente. Com ela, aprendemos a fazer orçamentos, economizar, investir e a tomar decisões financeiras conscientes para alcançar nossos objetivos de vida. É uma habilidade essencial para construir um futuro mais seguro e tranquilo.</p>
+    </div>
+    
+    <div id="content-fisica-educ" class="content-section">
+      <h1>Educação Física</h1>
+      <p>A Educação Física promove a saúde do corpo e da mente por meio do movimento, do esporte e da atividade física. Ela nos ensina sobre a importância de hábitos saudáveis, trabalho em equipe e superação de limites, além de ser uma excelente forma de combater o estresse e melhorar a qualidade de vida.</p>
+    </div>
+
+    <div id="content-artes" class="content-section">
+      <h1>Artes</h1>
+      <p>A área de Artes explora a criatividade, a expressão e a cultura humana por meio de diferentes formas, como pintura, música, teatro e dança. Estudar artes nos ajuda a desenvolver a sensibilidade, a imaginação e a capacidade de interpretar e apreciar o mundo de uma forma mais profunda e significativa.</p>
+    </div>
+
+    <div id="content-vida" class="content-section">
+      <h1>Projeto de Vida</h1>
+      <p>Projeto de Vida é o processo de autoconhecimento e planejamento para o futuro. Ele nos ajuda a identificar nossos valores, talentos, sonhos e a traçar um plano de ação para alcançá-los. É uma jornada contínua de reflexão e crescimento que nos permite tomar decisões alinhadas com o que realmente importa para nós.</p>
+    </div>
+
+    <div id="content-filosofia" class="content-section">
+      <h1>Filosofia</h1>
+      <p>A Filosofia é o amor ao conhecimento. Ela nos convida a questionar, a pensar criticamente e a refletir sobre as grandes questões da existência humana, como a moral, a ética, a verdade e o sentido da vida. É a matéria que nos ensina a pensar por nós mesmos e a buscar a sabedoria em todas as áreas do saber.</p>
+    </div>
+
+  </div>  
+
+  <div class="item4">
+    <h2>Fatos Rápidos:</h2>
+    <p>Clique em uma matéria no menu para ver um resumo.</p>
+    <p>A Física e a Matemática são disciplinas base para a engenharia.</p>
+    <p>A Biologia é fundamental para a área da saúde.</p>
+  </div>
+
+  <div class="item5"><p>Redimensione a janela do navegador para ver como o conteúdo se adapta.</p></div>
+  
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.item2 ul li');
+    const contentSections = document.querySelectorAll('.content-section');
+    const defaultContentId = 'content-home';
+
+    function showContent(contentId) {
+        contentSections.forEach(section => {
+            section.classList.remove('active');
+        });
+        const activeContent = document.getElementById(contentId);
+        if (activeContent) {
+            activeContent.classList.add('active');
+        }
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navItems.forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            this.classList.add('active');
+            const contentId = 'content-' + this.id;
+            showContent(contentId);
+        });
+    });
+
+    showContent(defaultContentId);
+});
+</script>
+
+</body>
+</html>
